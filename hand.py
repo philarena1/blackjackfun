@@ -92,7 +92,9 @@ class Hand():
         # pull a card
         # pop card from deck, store in results
         hit_card = game_deck.pop()
-        print('hit')
+        self.cards_list_drawn.append(hit_card)
+        self.cards_drawn = self.cards_drawn + 1
+        print('hit %s' % str(hit_card))
         print(hit_card)
 
     def stay(self):
