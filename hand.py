@@ -50,8 +50,35 @@ class Game():
 
 
 
+class Hand():
+
+    def __init__(self):
+        Hand.cards_drawn = 0
+        Hand.splits = 0
+        Hand.bet = 0
+
+    def hit(self):
+        # pull a card
+        print('hit')
+
+    def stay(self):
+        # stay
+        print('stay')
+
+    def double(self):
+        #increase wager
+        print('double')
+
+    def split(self):
+        #Pull extra card
+        print('split')
+
+
 new_game = Game()
 new_game.get_fresh_deck()
+
+
+hand = Hand()
 
 
 
