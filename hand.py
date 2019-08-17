@@ -86,7 +86,7 @@ class Hand():
     def __init__(self):
         Hand.cards_drawn = 0
         Hand.splits = 0
-        Hand.bet = 0
+        Hand.bet = 1
         Hand.cards_list_drawn = []  # list of cards drawn in the same hand
 
     def hit(self, game_deck):
@@ -105,7 +105,11 @@ class Hand():
 
     def double(self):
         #increase wager
+        double = self.bet * 2
+        self.bet = double
+
         print('double')
+        print('new bet %s' % str(double))
 
     def split(self):
         #Pull extra card
