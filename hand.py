@@ -76,6 +76,7 @@ class Person():
         self.split = ''
         self.split2 = ''
         self.split3 = ''
+        self.stay = False
 
 
 
@@ -99,6 +100,7 @@ class Hand():
 
     def stay(self):
         # stay
+        self.stay = True
         print('stay')
 
     def double(self):
