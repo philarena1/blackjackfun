@@ -4,7 +4,7 @@ class Game():
 
     def __init__(self):
         # default game 1 player, 6 decks
-        Game.players = 1
+        Game.players = 2
         Game.decks = 6
         Game.deck_cards = [] # list of actual cards available
         Game.shuffle_rate = 6 #times deck is shuffled
@@ -57,8 +57,27 @@ class Game():
             person.name = person_name
             list_people.append(person)
 
+        dealer = Person()
+        dealer.name = 'DEALER'
+        list_people.append(dealer)
+
         print(list_people)
         self.people_at_table = list_people
+
+
+    def deal(self):
+        # deal cards for each person
+        for person in self.people_at_table:
+            new_card = self.deck_cards.pop()
+            print(new_card)
+            newHand = Hand()
+            newHand.cards_list_drawn.append(new_card)
+            person.person_hands.append(newHand)
+
+            print(person.name)
+            print(newHand.cards_list_drawn)
+            print(person.person_hands[0].cards_list_drawn)
+
 
     def simulate(self, n):
         """ n is the number of simulations to run"""
@@ -80,9 +99,10 @@ class Hand():
 
     def __init__(self):
         Hand.cards_drawn = 0
-        Hand.splits = 0
+        Hand.splits = 0 # if is a split, and Ace, only 1 card
         Hand.bet = 1
         Hand.cards_list_drawn = []  # list of cards drawn in the same hand
+
 
     def hit(self, game_deck):
         # pull a card
@@ -108,7 +128,11 @@ class Hand():
 
     def split(self):
         #Pull extra card
-        # create a sub hand
+        # create 1 sub hand
+        self.splits = 1
+
+        split_hand = Hand()
+        split_hand.splits = 1
         print('split')
 
 
@@ -116,7 +140,12 @@ class Hand():
 # 1 game example
 newGame = Game()
 newGame.start_game()
+newGame.get_fresh_deck()
+newGame.deal()
 
-people_playing = newGame.people_at_table
+# see players hands
+newGame.people_at_table[0].person_hands[0].cards_list_drawn
+for people in newGame.people_at_table:
+    print(people.name)
+    print(people.person_hands[0].cards_list_drawn)
 
-newHand = Hand()
