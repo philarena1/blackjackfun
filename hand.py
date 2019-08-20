@@ -4,7 +4,7 @@ class Game():
 
     def __init__(self):
         # default game 1 player, 6 decks
-        Game.players = 5
+        Game.players = 1
         Game.decks = 6
         Game.deck_cards = [] # list of actual cards available
         Game.shuffle_rate = 6 #times deck is shuffled
@@ -70,13 +70,8 @@ class Person():
 
     def __init__(self):
         self.name = ''
-        self.first_card = ''
-        self.second_card = ''
-        self.hit_cards = ''
-        self.split = ''
-        self.split2 = ''
-        self.split3 = ''
-        self.stay = False
+        self.person_hands = [] # list of hands played
+
 
 
 
@@ -113,15 +108,15 @@ class Hand():
 
     def split(self):
         #Pull extra card
+        # create a sub hand
         print('split')
 
 
-new_game = Game()
-new_game.get_fresh_deck()
-new_game.start_game()
-new_game.people_at_table[0].name
 
-hand = Hand()
+# 1 game example
+newGame = Game()
+newGame.start_game()
 
-hand.hit(new_game.deck_cards)
+people_playing = newGame.people_at_table
 
+newHand = Hand()
