@@ -1,4 +1,5 @@
 # file for each hand played
+import time
 
 class Game():
 
