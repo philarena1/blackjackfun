@@ -69,14 +69,13 @@ class Game():
         # deal cards for each person
         for person in self.people_at_table:
             new_card = self.deck_cards.pop()
-            print(new_card)
             newHand = Hand()
-            newHand.cards_list_drawn.append(new_card)
+            hand_id = person.name + str(int(time.time())) # generate unique id for each hand
+            newHand.id = hand_id
+            new_card_list = [new_card]
+            newHand.cards_list_drawn = (new_card_list)
             person.person_hands.append(newHand)
 
-            print(person.name)
-            print(newHand.cards_list_drawn)
-            print(person.person_hands[0].cards_list_drawn)
 
 
     def simulate(self, n):
@@ -98,6 +97,7 @@ class Person():
 class Hand():
 
     def __init__(self):
+        Hand.id = ''
         Hand.cards_drawn = 0
         Hand.splits = 0 # if is a split, and Ace, only 1 card
         Hand.bet = 1
