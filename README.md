@@ -8,9 +8,8 @@ Each Game object has as many players as you want (7 is the max at a table, but w
 To start a game:
 ``` python 
 newGame = Game()
-newGame.start_game()
-newGame.get_fresh_deck()
 ```
+
 This will create the objects needed to simulate a game, with the default settings
   - 2 players
   - 6 decks

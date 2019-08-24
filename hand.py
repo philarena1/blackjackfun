@@ -11,6 +11,8 @@ class Game():
         Game.shuffle_rate = 6 #times deck is shuffled
         Game.people_at_table = []
 
+        self.start_game()
+        self.get_fresh_deck()
 
     def test(self):
         print('test')
@@ -140,8 +142,7 @@ class Hand():
 
 # 1 game example
 newGame = Game()
-newGame.start_game()
-newGame.get_fresh_deck()
+
 newGame.deal()
 
 # see players hands
