@@ -79,7 +79,11 @@ class Game():
             newHand.cards_list_drawn = (new_card_list)
             person.person_hands.append(newHand)
 
-
+        # need second card
+        for person in self.people_at_table:
+            current_hand = person.person_hands[-1]
+            current_hand.cards_list_drawn.append(self.deck_cards.pop())
+            print(current_hand.cards_list_drawn)
 
     def simulate(self, n):
         """ n is the number of simulations to run"""
@@ -150,4 +154,6 @@ newGame.people_at_table[0].person_hands[0].cards_list_drawn
 for people in newGame.people_at_table:
     print(people.name)
     print(people.person_hands[0].cards_list_drawn)
+
+newGame.people_at_table[0].person_hands[0].cards_list_drawn
 
