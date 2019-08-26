@@ -109,7 +109,7 @@ class Hand():
         Hand.splits = 0 # if is a split, and Ace, only 1 card
         Hand.bet = 1
         Hand.cards_list_drawn = []  # list of cards drawn in the same hand
-
+        Hand.stays = False
 
     def hit(self, game_deck):
         # pull a card
@@ -122,7 +122,7 @@ class Hand():
 
     def stay(self):
         # stay
-        self.stay = True
+        self.stays = True
         print('stay')
 
     def double(self):
@@ -143,17 +143,4 @@ class Hand():
         print('split')
 
 
-
-# 1 game example
-newGame = Game()
-
-newGame.deal()
-
-# see players hands
-newGame.people_at_table[0].person_hands[0].cards_list_drawn
-for people in newGame.people_at_table:
-    print(people.name)
-    print(people.person_hands[0].cards_list_drawn)
-
-newGame.people_at_table[0].person_hands[0].cards_list_drawn
 
